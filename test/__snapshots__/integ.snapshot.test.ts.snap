@@ -1,0 +1,328 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`integ snapshot validation 1`] = `
+Object {
+  "Outputs": Object {
+    "BarVersion": Object {
+      "Value": Object {
+        "Fn::GetAtt": Array [
+          "ParameterProviderParameterResourceBarE861501B",
+          "Version",
+        ],
+      },
+    },
+    "FooVersion": Object {
+      "Value": Object {
+        "Fn::GetAtt": Array [
+          "ParameterProviderParameterResourceFoo1AE7F454",
+          "Version",
+        ],
+      },
+    },
+  },
+  "Parameters": Object {
+    "AssetParametersc691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49cArtifactHash627DAAA7": Object {
+      "Description": "Artifact hash for asset \\"c691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49c\\"",
+      "Type": "String",
+    },
+    "AssetParametersc691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49cS3BucketEAC9DD43": Object {
+      "Description": "S3 bucket for asset \\"c691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49c\\"",
+      "Type": "String",
+    },
+    "AssetParametersc691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49cS3VersionKeyDD9AE9E7": Object {
+      "Description": "S3 key for asset version \\"c691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49c\\"",
+      "Type": "String",
+    },
+    "AssetParametersfcddf47538074c303caf3505d723dd66a75056284af765da4bcec138640f324dArtifactHashD31946FC": Object {
+      "Description": "Artifact hash for asset \\"fcddf47538074c303caf3505d723dd66a75056284af765da4bcec138640f324d\\"",
+      "Type": "String",
+    },
+    "AssetParametersfcddf47538074c303caf3505d723dd66a75056284af765da4bcec138640f324dS3BucketF9399989": Object {
+      "Description": "S3 bucket for asset \\"fcddf47538074c303caf3505d723dd66a75056284af765da4bcec138640f324d\\"",
+      "Type": "String",
+    },
+    "AssetParametersfcddf47538074c303caf3505d723dd66a75056284af765da4bcec138640f324dS3VersionKey87823C3B": Object {
+      "Description": "S3 key for asset version \\"fcddf47538074c303caf3505d723dd66a75056284af765da4bcec138640f324d\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "ParameterProviderHandlerF1E00AF5": Object {
+      "DependsOn": Array [
+        "ParameterProviderHandlerServiceRoleDefaultPolicyDC6345B8",
+        "ParameterProviderHandlerServiceRole21BEFE9A",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParametersfcddf47538074c303caf3505d723dd66a75056284af765da4bcec138640f324dS3BucketF9399989",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersfcddf47538074c303caf3505d723dd66a75056284af765da4bcec138640f324dS3VersionKey87823C3B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersfcddf47538074c303caf3505d723dd66a75056284af765da4bcec138640f324dS3VersionKey87823C3B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Handler": "index.on_event",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "ParameterProviderHandlerServiceRole21BEFE9A",
+            "Arn",
+          ],
+        },
+        "Runtime": "python3.8",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ParameterProviderHandlerServiceRole21BEFE9A": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ParameterProviderHandlerServiceRoleDefaultPolicyDC6345B8": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "ssm:DescribeParameters",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::Join": Array [
+                  "",
+                  Array [
+                    "arn:",
+                    Object {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":ssm:ap-northeast-1:",
+                    Object {
+                      "Ref": "AWS::AccountId",
+                    },
+                    ":*",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ParameterProviderHandlerServiceRoleDefaultPolicyDC6345B8",
+        "Roles": Array [
+          Object {
+            "Ref": "ParameterProviderHandlerServiceRole21BEFE9A",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ParameterProviderParameterResourceBarE861501B": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "ParameterProviderParameterResourceProviderframeworkonEvent42CD25C5",
+            "Arn",
+          ],
+        },
+        "parameterName": "Bar",
+        "random": "0pvc44kj1jnb",
+      },
+      "Type": "AWS::CloudFormation::CustomResource",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ParameterProviderParameterResourceFoo1AE7F454": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "ParameterProviderParameterResourceProviderframeworkonEvent42CD25C5",
+            "Arn",
+          ],
+        },
+        "parameterName": "Foo",
+        "random": "0x0zfc1atft",
+      },
+      "Type": "AWS::CloudFormation::CustomResource",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ParameterProviderParameterResourceProviderframeworkonEvent42CD25C5": Object {
+      "DependsOn": Array [
+        "ParameterProviderParameterResourceProviderframeworkonEventServiceRoleDefaultPolicyDC65E3A5",
+        "ParameterProviderParameterResourceProviderframeworkonEventServiceRoleDCDC0D38",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParametersc691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49cS3BucketEAC9DD43",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersc691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49cS3VersionKeyDD9AE9E7",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersc691172cdeefa2c91b5a2907f9d81118e47597634943344795f1a844192dd49cS3VersionKeyDD9AE9E7",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Description": "AWS CDK resource provider framework - onEvent (testing-stack/ParameterProvider/ParameterResourceProvider)",
+        "Environment": Object {
+          "Variables": Object {
+            "USER_ON_EVENT_FUNCTION_ARN": Object {
+              "Fn::GetAtt": Array [
+                "ParameterProviderHandlerF1E00AF5",
+                "Arn",
+              ],
+            },
+          },
+        },
+        "Handler": "framework.onEvent",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "ParameterProviderParameterResourceProviderframeworkonEventServiceRoleDCDC0D38",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs10.x",
+        "Timeout": 900,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ParameterProviderParameterResourceProviderframeworkonEventServiceRoleDCDC0D38": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ParameterProviderParameterResourceProviderframeworkonEventServiceRoleDefaultPolicyDC65E3A5": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "lambda:InvokeFunction",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "ParameterProviderHandlerF1E00AF5",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ParameterProviderParameterResourceProviderframeworkonEventServiceRoleDefaultPolicyDC65E3A5",
+        "Roles": Array [
+          Object {
+            "Ref": "ParameterProviderParameterResourceProviderframeworkonEventServiceRoleDCDC0D38",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+  },
+}
+`;
