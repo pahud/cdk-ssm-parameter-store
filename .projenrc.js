@@ -6,7 +6,7 @@ const project = new AwsCdkConstructLibrary({
   authorAddress: "pahudnet@gmail.com",
   authorName: "Pahud Hsieh",
   cdkVersion: "1.70.0",
-  name: "cdk-ssm-paramter-store",
+  name: "cdk-ssm-parameter-store",
   repository: "https://github.com/pahud/gitpod-workspace.git",
   cdkDependencies: [
     '@aws-cdk/core',

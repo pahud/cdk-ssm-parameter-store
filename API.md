@@ -4,18 +4,18 @@
 
 Name|Description
 ----|-----------
-[Provider](#cdk-ssm-paramter-store-provider)|Parameter Provider.
+[Provider](#cdk-ssm-parameter-store-provider)|Parameter Provider.
 
 
 **Structs**
 
 Name|Description
 ----|-----------
-[ProviderProps](#cdk-ssm-paramter-store-providerprops)|*No description*
+[ProviderProps](#cdk-ssm-parameter-store-providerprops)|*No description*
 
 
 
-## class Provider  <a id="cdk-ssm-paramter-store-provider"></a>
+## class Provider  <a id="cdk-ssm-parameter-store-provider"></a>
 
 Parameter Provider.
 
@@ -33,14 +33,14 @@ new Provider(scope: Construct, id: string, props?: ProviderProps)
 
 * **scope** (<code>[Construct](#aws-cdk-core-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[ProviderProps](#cdk-ssm-paramter-store-providerprops)</code>)  *No description*
+* **props** (<code>[ProviderProps](#cdk-ssm-parameter-store-providerprops)</code>)  *No description*
   * **latest** (<code>boolean</code>)  always get the latest parameter. __*Default*__: true
 
 
 ### Methods
 
 
-#### get(name) <a id="cdk-ssm-paramter-store-provider-get"></a>
+#### get(name) <a id="cdk-ssm-parameter-store-provider-get"></a>
 
 return the parameter resource.
 
@@ -55,7 +55,7 @@ __Returns__:
 
 
 
-## struct ProviderProps  <a id="cdk-ssm-paramter-store-providerprops"></a>
+## struct ProviderProps  <a id="cdk-ssm-parameter-store-providerprops"></a>
 
 
 
