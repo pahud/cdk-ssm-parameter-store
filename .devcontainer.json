@@ -1,9 +1,6 @@
 {
     "name": "Dev Container Definition - AWS CDK",
-    "image": "jsii/superchain",
-    "build": {
-      "dockerfile": "pahud/github-codespace",
-    },
+    "image": "pahud/github-codespace",
     "extensions": [
         "dbaeumer.vscode-eslint@2.1.5"
     ]
