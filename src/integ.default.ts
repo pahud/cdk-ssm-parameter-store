@@ -1,8 +1,6 @@
 import { App, Stack, CfnOutput } from '@aws-cdk/core';
 import * as param from './';
 
-const AWS_DEFAULT_REGION = 'ap-northeast-1';
-
 export class IntegTesting {
   readonly stack: Stack[];
 
@@ -10,7 +8,7 @@ export class IntegTesting {
     const app = new App();
 
     const env = {
-      region: process.env.CDK_DEFAULT_REGION ?? AWS_DEFAULT_REGION,
+      region: process.env.CDK_DEFAULT_REGION,
       account: process.env.CDK_DEFAULT_ACCOUNT,
     };
 

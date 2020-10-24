@@ -148,7 +148,11 @@ Object {
                     Object {
                       "Ref": "AWS::Partition",
                     },
-                    ":ssm:ap-northeast-1:",
+                    ":ssm:",
+                    Object {
+                      "Ref": "AWS::Region",
+                    },
+                    ":",
                     Object {
                       "Ref": "AWS::AccountId",
                     },
