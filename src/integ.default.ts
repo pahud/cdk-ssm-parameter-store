@@ -16,7 +16,9 @@ export class IntegTesting {
 
     const stack = new Stack(app, 'testing-stack', { env });
 
-    const p = new param.Provider(stack, 'ParameterProvider');
+    const p = new param.Provider(stack, 'ParameterProvider', {
+      latest: false,
+    });
     const fooVersion = p.get('Foo').getAttString('Version');
     const barVersion = p.get('Bar').getAttString('Version');
 
