@@ -2,7 +2,7 @@
     "name": "Dev Container Definition - AWS CDK",
     "image": "jsii/superchain",
     "build": {
-      "dockerfile": ".gitpod.Dockerfile",
+      "dockerfile": "pahud/github-codespace",
     },
     "extensions": [
         "dbaeumer.vscode-eslint@2.1.5"
