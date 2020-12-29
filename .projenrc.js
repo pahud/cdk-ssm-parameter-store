@@ -3,17 +3,17 @@ const { AwsCdkConstructLibrary } = require('projen');
 const AUTOMATION_TOKEN = 'AUTOMATION_GITHUB_TOKEN';
 
 const project = new AwsCdkConstructLibrary({
-  authorAddress: "pahudnet@gmail.com",
-  authorName: "Pahud Hsieh",
-  cdkVersion: "1.80.0",
-  name: "cdk-ssm-parameter-store",
-  repository: "https://github.com/pahud/cdk-ssm-parameter-store.git",
+  authorAddress: 'pahudnet@gmail.com',
+  authorName: 'Pahud Hsieh',
+  cdkVersion: '1.80.0',
+  name: 'cdk-ssm-parameter-store',
+  repository: 'https://github.com/pahud/cdk-ssm-parameter-store.git',
   cdkDependencies: [
     '@aws-cdk/core',
     '@aws-cdk/custom-resources',
-    '@aws-cdk/aws-iam', 
+    '@aws-cdk/aws-iam',
     '@aws-cdk/aws-lambda',
-    '@aws-cdk/aws-ssm', 
+    '@aws-cdk/aws-ssm',
   ],
   dependabot: false,
   keywords: [
@@ -28,8 +28,8 @@ const project = new AwsCdkConstructLibrary({
 
   python: {
     distName: 'cdk-ssm-parameter-store',
-    module: 'cdk_ssm_parameter_store'
-  }
+    module: 'cdk_ssm_parameter_store',
+  },
 });
 
 // create a custom projen and yarn upgrade workflow
@@ -75,8 +75,8 @@ workflow.addJobs({
 });
 
 
-const common_exclude = ['cdk.out', 'cdk.context.json', 'images', 'yarn-error.log', 
-'docker-image-publish.yml', 'utils'];
+const common_exclude = ['cdk.out', 'cdk.context.json', 'images', 'yarn-error.log',
+  'docker-image-publish.yml', 'utils'];
 project.npmignore.exclude(...common_exclude);
 project.gitignore.exclude(...common_exclude);
 
