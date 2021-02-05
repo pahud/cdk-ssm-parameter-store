@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.27](https://github.com/pahud/cdk-ssm-parameter-store/compare/v0.1.26...v0.1.27) (2021-02-05)
+
+
+### Bug Fixes
+
+* defaultReleaseBranch ([72b6b68](https://github.com/pahud/cdk-ssm-parameter-store/commit/72b6b68b3f5e82a5b895d55e4d1717d73d1d128c))
+* minor ([b5c6454](https://github.com/pahud/cdk-ssm-parameter-store/commit/b5c6454fa7a50883ac83f9566a5e2602f8af1c17))
+
 ### [0.1.26](https://github.com/pahud/cdk-ssm-parameter-store/compare/v0.1.25...v0.1.26) (2021-02-03)
 
 ### [0.1.25](https://github.com/pahud/cdk-ssm-parameter-store/compare/v0.1.24...v0.1.25) (2021-02-02)
