@@ -1,6 +1,6 @@
 {
     "name": "Dev Container Definition - AWS CDK",
-    "image": "pahud/github-codespace",
+    "image": "public.ecr.aws/pahudnet/gitpod-workspace:latest",
     "extensions": [
         "dbaeumer.vscode-eslint@2.1.5"
     ]

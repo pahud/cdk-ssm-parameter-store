@@ -8,6 +8,7 @@ const project = new AwsCdkConstructLibrary({
   cdkVersion: '1.82.0',
   name: 'cdk-ssm-parameter-store',
   repository: 'https://github.com/pahud/cdk-ssm-parameter-store.git',
+  defaultReleaseBranch: 'master',
   cdkDependencies: [
     '@aws-cdk/core',
     '@aws-cdk/custom-resources',
