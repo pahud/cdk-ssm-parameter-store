@@ -7,6 +7,7 @@ const project = new AwsCdkConstructLibrary({
   authorName: 'Pahud Hsieh',
   cdkVersion: '1.82.0',
   name: 'cdk-ssm-parameter-store',
+  description: 'AWS CDK construct that allows you to get the latest Version of the AWS SSM Parameters',
   repository: 'https://github.com/pahud/cdk-ssm-parameter-store.git',
   defaultReleaseBranch: 'master',
   cdkDependencies: [
