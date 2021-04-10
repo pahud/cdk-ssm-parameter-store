@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.80](https://github.com/pahud/cdk-ssm-parameter-store/compare/v0.1.79...v0.1.80) (2021-04-10)
+
 ### [0.1.79](https://github.com/pahud/cdk-ssm-parameter-store/compare/v0.1.78...v0.1.79) (2021-04-09)
 
 ### [0.1.78](https://github.com/pahud/cdk-ssm-parameter-store/compare/v0.1.77...v0.1.78) (2021-04-08)
