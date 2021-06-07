@@ -1,4 +1,4 @@
-const { AwsCdkConstructLibrary } = require('projen');
+const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism } = require('projen');
 
 const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
@@ -9,7 +9,7 @@ const project = new AwsCdkConstructLibrary({
   name: 'cdk-ssm-parameter-store',
   description: 'AWS CDK construct that allows you to get the latest Version of the AWS SSM Parameters',
   repository: 'https://github.com/pahud/cdk-ssm-parameter-store.git',
-  defaultReleaseBranch: 'master',
+  defaultReleaseBranch: 'main',
   cdkDependencies: [
     '@aws-cdk/core',
     '@aws-cdk/custom-resources',
@@ -17,7 +17,16 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-lambda',
     '@aws-cdk/aws-ssm',
   ],
-  dependabot: false,
+  depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    workflowOptions: {
+      labels: ['auto-approve', 'auto-merge'],
+      secret: AUTOMATION_TOKEN,
+    },
+  }),
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['pahud'],
+  },
   keywords: [
     'ssm',
     'parameter',
@@ -33,47 +42,6 @@ const project = new AwsCdkConstructLibrary({
     module: 'cdk_ssm_parameter_store',
   },
 });
-
-// create a custom projen and yarn upgrade workflow
-workflow = project.github.addWorkflow('ProjenYarnUpgrade');
-
-workflow.on({
-  schedule: [{
-    cron: '11 0 * * *',
-  }], // 0:11am every day
-  workflow_dispatch: {}, // allow manual triggering
-});
-
-workflow.addJobs({
-  upgrade: {
-    'runs-on': 'ubuntu-latest',
-    'steps': [
-      { uses: 'actions/checkout@v2' },
-      {
-        uses: 'actions/setup-node@v1',
-        with: {
-          'node-version': '10.17.0',
-        },
-      },
-      { run: 'yarn upgrade' },
-      { run: 'yarn projen:upgrade' },
-      // submit a PR
-      {
-        name: 'Create Pull Request',
-        uses: 'peter-evans/create-pull-request@v3',
-        with: {
-          'token': '${{ secrets.' + AUTOMATION_TOKEN + ' }}',
-          'commit-message': 'chore: upgrade projen',
-          'branch': 'auto/projen-upgrade',
-          'title': 'chore: upgrade projen and yarn',
-          'body': 'This PR upgrades projen and yarn upgrade to the latest version',
-          'labels': 'auto-merge',
-        },
-      },
-    ],
-  },
-});
-
 
 const common_exclude = ['cdk.out', 'cdk.context.json', 'images', 'yarn-error.log',
   'docker-image-publish.yml', 'utils'];
