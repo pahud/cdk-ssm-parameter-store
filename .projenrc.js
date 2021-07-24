@@ -18,6 +18,7 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-ssm',
   ],
   depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    ignoreProjen: false,
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
       secret: AUTOMATION_TOKEN,
