@@ -1,3 +1,13 @@
+# Deprecating
+
+We are deprecating this construct library, please use the following method from `@aws-cdk/aws-ssm` instead.
+
+```ts
+ssm.StringParameter.valueForStringParameter()
+```
+
+
+
 [![NPM version](https://badge.fury.io/js/cdk-ssm-parameter-store.svg)](https://badge.fury.io/js/cdk-ssm-parameter-store)
 [![PyPI version](https://badge.fury.io/py/cdk-ssm-parameter-store.svg)](https://badge.fury.io/py/cdk-ssm-parameter-store)
 ![Release](https://github.com/pahud/cdk-ssm-parameter-store/workflows/Release/badge.svg)
